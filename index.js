@@ -48,16 +48,13 @@ clickButton();
 function inputOperand(operand) {
     if(firstOperator === null) {
         if(displayValue === '0' || displayValue === 0) {
-            //1st click - handles first operand input
             displayValue = operand;
         } else if(displayValue === firstOperand) {
-            //starts new operation after inputEquals()
             displayValue = operand;
         } else {
             displayValue += operand;
         }
     } else {
-        //3rd/5th click - inputs to secondOperand
         if(displayValue === firstOperand) {
             displayValue = operand;
         } else {
@@ -68,7 +65,6 @@ function inputOperand(operand) {
 
 function inputOperator(operator) {
     if(firstOperator != null && secondOperator === null) {
-        //4th click - handles input of second operator
         secondOperator = operator;
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator);
@@ -76,7 +72,6 @@ function inputOperator(operator) {
         firstOperand = displayValue;
         result = null;
     } else if(firstOperator != null && secondOperator != null) {
-        //6th click - new secondOperator
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), secondOperator);
         secondOperator = operator;
@@ -84,44 +79,8 @@ function inputOperator(operator) {
         firstOperand = displayValue;
         result = null;
     } else { 
-        //2nd click - handles first operator input
         firstOperator = operator;
         firstOperand = displayValue;
-    }
-}
-
-function inputEquals() {
-    //hitting equals doesn't display undefined before operate()
-    if(firstOperator === null) {
-        displayValue = displayValue;
-    } else if(secondOperator != null) {
-        //handles final result
-        secondOperand = displayValue;
-        result = operate(Number(firstOperand), Number(secondOperand), secondOperator);
-        if(result === 'lmao') {
-            displayValue = 'lmao';
-        } else {
-            displayValue = roundAccurately(result, 15).toString();
-            firstOperand = displayValue;
-            secondOperand = null;
-            firstOperator = null;
-            secondOperator = null;
-            result = null;
-        }
-    } else {
-        //handles first operation
-        secondOperand = displayValue;
-        result = operate(Number(firstOperand), Number(secondOperand), firstOperator);
-        if(result === 'lmao') {
-            displayValue = 'lmao';
-        } else {
-            displayValue = roundAccurately(result, 15).toString();
-            firstOperand = displayValue;
-            secondOperand = null;
-            firstOperator = null;
-            secondOperator = null;
-            result = null;
-        }
     }
 }
 
@@ -177,3 +136,36 @@ function operate(x, y, op) {
 function roundAccurately(num, places) {
     return parseFloat(Math.round(num + 'e' + places) + 'e-' + places);
 }
+
+function inputEquals() {
+    if(firstOperator === null) {
+        displayValue = displayValue;
+    } else if(secondOperator != null) {
+        secondOperand = displayValue;
+        result = operate(Number(firstOperand), Number(secondOperand), secondOperator);
+        if(result === 'lmao') {
+            displayValue = 'lmao';
+        } else {
+            displayValue = roundAccurately(result, 15).toString();
+            firstOperand = displayValue;
+            secondOperand = null;
+            firstOperator = null;
+            secondOperator = null;
+            result = null;
+        }
+    } else {
+        secondOperand = displayValue;
+        result = operate(Number(firstOperand), Number(secondOperand), firstOperator);
+        if(result === 'lmao') {
+            displayValue = 'lmao';
+        } else {
+            displayValue = roundAccurately(result, 15).toString();
+            firstOperand = displayValue;
+            secondOperand = null;
+            firstOperator = null;
+            secondOperator = null;
+            result = null;
+        }
+    }
+}
+
