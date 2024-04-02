@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+}
+body{
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    border-radius: 8px;
+    border-width: 0;
+    font-size: 48px;
+    color: #543855;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #EFE7BC;
+    min-height: 90px;
+    min-width: 80px;
+    text-align: center;
+    padding: 8px;
+    flex: 1;
+    cursor: pointer;
+    
+}
+.green{
+    background-color: rgb(0, 99, 0);
+}
+.numpad, #container{
+    flex-direction: column;
+}
+
+.numpad{
+    gap: 8px;
+}
+.row{
+    gap: 8px;
+}
+input{
+    font-size: 64px;
+    width: 325px;
+    text-align: end;
+    border-radius: 16px;
+    padding:8px 16px;
+    height: 100px;
+    width: 360px;
+    background-color: #E7F2F8;
+    color: #543855;
+}
+#container{
+    gap: 8px;
+    background-color: rgb(39, 33, 33);
+    border-radius: 16px;
+    padding: 8px;
+    border-style: ridge;
+    border-width: 8px;
+    border-color: #111010;
+    height: 100%;
+
+}
+#frame{
+    height: 75%;
+}
+#zero{
+    background-color:  #74BDCB;
+}
+.operator,.clear,.sign,.percent,.equals{
+    background-color: #FFA384;
+}
